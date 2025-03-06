@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define SIZE 128 // 2^7 = 128
+
+// Function to add two matrices
+void matrixAddition(int A[SIZE][SIZE], int B[SIZE][SIZE], int C[SIZE][SIZE]) {
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            C[i][j] = A[i][j] + B[i][j];
+        }
+    }
+}
+
+// Function to print a matrix
+void printMatrix(int matrix[SIZE][SIZE]) {
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int A[SIZE][SIZE], B[SIZE][SIZE], C[SIZE][SIZE];
+
+    // Seed the random number generator
+    srand(time(0));
+
+    // Fill matrices A and B with random values
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            A[i][j] = rand() % 100; // Random value between 0 and 99
+            B[i][j] = rand() % 100; // Random value between 0 and 99
+        }
+    }
+
+    // Perform matrix addition
+    matrixAddition(A, B, C);
+
+    // Print the matrices (optional for large matrices)
+    // printf("Matrix A:\n");
+    // printMatrix(A);
+
+    // printf("\nMatrix B:\n");
+    // printMatrix(B);
+
+   
+  
+    printMatrix(C);
+
+    return 0;
+}
